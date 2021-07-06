@@ -1,32 +1,97 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <v-app>
+    <div class="bee">
+      <img src="/img/bee3.gif" alt="Bee Animation" />
     </div>
-    <router-view/>
-  </div>
+    <div class="bg"></div>
+
+    <div class="headerWrapper">
+      <Header />
+    </div>
+    <v-main>
+      <transition name="fade">
+        <router-view class="routerView"></router-view>
+      </transition>
+    </v-main>
+  </v-app>
 </template>
 
+<script lang="ts">
+import Vue from 'vue';
+import Header from '@/components/Header.vue';
+
+export default Vue.extend({
+  name: 'App',
+  components: {
+    Header,
+  },
+
+  data: () => ({}),
+});
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import '@/sass/master';
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
-#nav {
-  padding: 30px;
+.loaderWrapper {
+  z-index: 99;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.514);
+  @include flexbox(row, center, center, 0);
+  position: fixed;
+  right: 0;
+  overflow: hidden;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+/* .routerView {
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+} */
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.headerWrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+#app {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: map-get($colors, gradient);
+}
+
+.bg {
+  position: absolute;
+  opacity: 0.2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url('/img/bg.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bee {
+  position: absolute;
+  z-index: map-get($layers, base);
+  right: 0;
+  transform: scaleX(-1);
+
+  > img {
+    width: 8rem;
   }
 }
 </style>

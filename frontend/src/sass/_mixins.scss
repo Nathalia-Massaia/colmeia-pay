@@ -1,0 +1,15 @@
+@mixin flexbox($direction, $align, $justify, $gap) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin gridbox($layout, $align, $justify, $gap) {
+  display: grid;
+  grid-template-columns: $layout;
+  align-items: $align;
+  justify-content: $justify;
+  grid-gap: $gap;
+}
