@@ -5,6 +5,8 @@ import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
 
+import Header from '@/components/Header.vue';
+
 Vue.config.productionTip = false;
 
 window.addEventListener('load', function() {
@@ -12,6 +14,9 @@ window.addEventListener('load', function() {
     window.scrollTo(0, 1);
   }, 0);
 });
+
+Vue.component('Header', Header
+);
 
 new Vue({
   router,

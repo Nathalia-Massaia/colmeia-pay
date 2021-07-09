@@ -9,6 +9,10 @@ const routes: Array<RouteConfig> = [
     path: '/',
     component: Home,
   },
+  {
+    path: '/register',
+    name: 'Register',
+  },
 ];
 
 const router = new VueRouter({
