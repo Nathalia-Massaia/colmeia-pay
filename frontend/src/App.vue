@@ -17,17 +17,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
 export default Vue.extend({
-  name: 'App',
+  name: "App",
 
   data: () => ({}),
 });
 </script>
 
 <style lang="scss">
-@import '@/sass/master';
+@import "@/sass/master";
 
 .fade-enter-active,
 .fade-leave-active {
@@ -39,7 +39,7 @@ export default Vue.extend({
 }
 
 .loaderWrapper {
-  z-index: 99;
+  z-index: map-get($layers, base);
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.514);
   @include flexbox(row, center, center, 0);
@@ -58,6 +58,8 @@ export default Vue.extend({
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: map-get($layers, menu);
+
 }
 
 #app {
@@ -74,7 +76,7 @@ export default Vue.extend({
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: url('/img/bg.jpg');
+  background-image: url("/img/bg.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

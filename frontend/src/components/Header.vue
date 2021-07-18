@@ -8,14 +8,14 @@
     </v-btn>
     <v-btn icon>
       <router-link to="/">
-        <v-icon>mdi-home</v-icon>
-        <span>Home</span>
+        <v-icon>mdi-sale</v-icon>
+        <span>Vendas</span>
       </router-link>
     </v-btn>
     <v-btn icon>
       <router-link to="/">
-        <v-icon>mdi-home</v-icon>
-        <span>Home</span>
+        <v-icon>mdi-cart</v-icon>
+        <span>Carrinho</span>
       </router-link>
     </v-btn>
 
@@ -46,6 +46,7 @@ export default Vue.extend({
   justify-content: space-between !important;
 
   a {
+    text-decoration: none ;
     color: map-get($colors, secondary) !important;
     @include flexbox(column, center, center, 0.2rem);
   }
