@@ -78,15 +78,17 @@ export class CategoryService {
         throw new InternalServerErrorException('Category not found');
       }
 
-      const hasAvailableName = await this.categoryRepository.findOne({
-        name: data.name.toLowerCase(),
-      });
+      if (data.name) {
+        const hasAvailableName = await this.categoryRepository.findOne({
+          name: data.name.toLowerCase(),
+        });
 
-      if (hasAvailableName) {
-        throw new InternalServerErrorException('This Name is not available');
+        if (hasAvailableName) {
+          throw new InternalServerErrorException('This Name is not available');
+        }
       }
 
-      category.name = data.name.toLowerCase();
+      category.name = data.name && data.name.toLowerCase();
 
       const errors = await validate(category);
       if (errors.length > 0) {
@@ -104,13 +106,13 @@ export class CategoryService {
 
   async delete(id: string): Promise<void> {
     try {
-      const category = await this.findById(id);
+      const category = await this.categoryRepository.findOne(id);
 
       if (!category) {
         throw new InternalServerErrorException('Category not found');
       }
 
-      await this.categoryRepository.delete(category);
+      await this.categoryRepository.delete(id);
     } catch (error) {
       throw new InternalServerErrorException(error.message);
     }

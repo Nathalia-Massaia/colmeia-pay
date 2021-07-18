@@ -5,18 +5,18 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductModule } from './product/product.module';
 import { CategoryModule } from './category/category.module';
 import { CustomerModule } from './customer/customer.module';
-import { SalesModule } from './sales/sales.module';
+import { SaleModule } from './sale/sale.module';
 
 import { ProductController } from 'product/product.controller';
 import { CategoryController } from 'category/category.controller';
+import { SaleController } from 'sale/sale.controller';
 import { CustomerController } from 'customer/customer.controller';
-import { SalesController } from 'sales/sales.controller';
 
 const controllers = [
   ProductController,
   CategoryController,
   CustomerController,
-  SalesController,
+  SaleController,
 ];
 
 @Module({
@@ -33,8 +33,8 @@ const controllers = [
     ProductModule,
     CategoryModule,
     CustomerModule,
-    SalesModule,
+    SaleModule,
   ],
-  controllers: controllers
+  controllers: controllers,
 })
 export class AppModule {}

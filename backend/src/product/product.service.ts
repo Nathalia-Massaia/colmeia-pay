@@ -82,15 +82,17 @@ export class ProductService {
         throw new InternalServerErrorException('Product not found');
       }
 
-      const hasAvailableName = await this.productRepository.findOne({
-        name: data.name.toLowerCase(),
-      });
+      if (data.name) {
+        const hasAvailableName = await this.productRepository.findOne({
+          name: data.name.toLowerCase(),
+        });
 
-      if (hasAvailableName) {
-        throw new InternalServerErrorException('This Name is not available');
+        if (hasAvailableName) {
+          throw new InternalServerErrorException('This Name is not available');
+        }
       }
 
-      product.name = data.name.toLowerCase();
+      product.name = data.name && data.name.toLowerCase();
       product.price = data.price;
       product.category = data.category;
 
@@ -112,13 +114,13 @@ export class ProductService {
 
   async delete(id: string): Promise<void> {
     try {
-      const product = await this.findById(id);
+      const product = await this.productRepository.findOne(id);
 
       if (!product) {
         throw new InternalServerErrorException('Product not found');
       }
 
-      await this.productRepository.delete(product);
+      await this.productRepository.delete(id);
     } catch (error) {
       throw new InternalServerErrorException(error.message);
     }
