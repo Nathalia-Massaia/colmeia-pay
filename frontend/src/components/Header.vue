@@ -6,16 +6,11 @@
         <span>Home</span>
       </router-link>
     </v-btn>
+
     <v-btn icon>
       <router-link to="/">
-        <v-icon>mdi-sale</v-icon>
-        <span>Vendas</span>
-      </router-link>
-    </v-btn>
-    <v-btn icon>
-      <router-link to="/">
-        <v-icon>mdi-cart</v-icon>
-        <span>Carrinho</span>
+        <v-icon>mdi-currency-usd</v-icon>
+        <span>Vender</span>
       </router-link>
     </v-btn>
 
@@ -23,6 +18,13 @@
       <router-link to="/register">
         <v-icon>mdi-plus</v-icon>
         <span>Cadastrar</span>
+      </router-link>
+    </v-btn>
+
+    <v-btn icon>
+      <router-link to="/">
+        <v-icon>mdi-chart-line</v-icon>
+        <span>Relatórios</span>
       </router-link>
     </v-btn>
   </v-bottom-navigation>
@@ -46,10 +48,11 @@ export default Vue.extend({
   justify-content: space-between !important;
 
   a {
-    text-decoration: none ;
+    text-decoration: none;
     color: map-get($colors, secondary) !important;
     @include flexbox(column, center, center, 0.2rem);
   }
+
   .v-btn {
     flex: 1 !important;
   }

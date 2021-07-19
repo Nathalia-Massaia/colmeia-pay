@@ -1,9 +1,12 @@
 <template>
   <v-app>
-    <div class="bee">
-      <img src="/img/bee3.gif" alt="Bee Animation" />
-    </div>
     <div class="bg"></div>
+
+    <div class="loaderWrapper" v-if="onLoad">
+      <Loader />
+    </div>
+
+    <Bee />
 
     <div class="headerWrapper">
       <Header />
@@ -17,18 +20,33 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
+import { mapState } from 'vuex';
+import Bee from '@/components/Bee.vue';
+import Loader from '@/components/Loader.vue';
 
 export default Vue.extend({
-  name: "App",
+  name: 'App',
 
-  data: () => ({}),
+  components: {
+    Bee,
+    Loader,
+  },
+
+  computed: {
+    ...mapState({
+      onLoad: (state: any) => state.onLoad,
+    }),
+  },
 });
 </script>
 
 <style lang="scss">
-@import "@/sass/master";
+@import '@/sass/master';
 
+v-app{
+  display: none;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;
@@ -36,6 +54,10 @@ export default Vue.extend({
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.routerView {
+  height: 100%;
 }
 
 .loaderWrapper {
@@ -48,18 +70,11 @@ export default Vue.extend({
   overflow: hidden;
 }
 
-/* .routerView {
-  width: 100%;
-  z-index: 1;
-  position: fixed;
-} */
-
 .headerWrapper {
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: map-get($layers, menu);
-
 }
 
 #app {
@@ -76,20 +91,16 @@ export default Vue.extend({
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: url("/img/bg.jpg");
+  background-image: url('/img/bg.jpg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.bee {
+.loaderWrapper {
   position: absolute;
-  z-index: map-get($layers, base);
-  right: 0;
-  transform: scaleX(-1);
-
-  > img {
-    width: 8rem;
-  }
+  width: 100%;
+  height: 100vh;
+  z-index: map-get($layers, overlay);
 }
 </style>

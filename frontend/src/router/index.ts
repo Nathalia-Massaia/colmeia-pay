@@ -14,7 +14,26 @@ const routes: Array<RouteConfig> = [
     path: '/register',
     name: 'Register',
     component: Register,
-
+  },
+  {
+    path: '/produtos',
+    name: 'Products',
+    component: Home,
+  },
+  {
+    path: '/categorias',
+    name: 'Categorias',
+    component: Register,
+  },
+  {
+    path: '/clientes',
+    name: 'Customers',
+    component: Register,
+  },
+  {
+    path: '/vendas',
+    name: 'Sales',
+    component: Register,
   },
 ];
 
