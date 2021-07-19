@@ -70,6 +70,10 @@ v-app{
   overflow: hidden;
 }
 
+.routerView {
+  height: 100%;
+}
+
 .headerWrapper {
   position: fixed;
   bottom: 0;
