@@ -37,7 +37,7 @@ export default Vue.extend({
   name: 'Header',
   data() {
     return {};
-  },
+  }
 });
 </script>
 
@@ -56,6 +56,13 @@ export default Vue.extend({
   .v-btn {
     flex: 1 !important;
     transition: map-get($transition, fast);
+    @include flexbox(column, center, center, 0.2rem);
+  }
+  .v-btn__content {
+    @include flexbox(column!important, center, center, 0.2rem);
+  }
+  .v-icon {
+    margin-right: 0 !important;
   }
 
   .router-link-exact-active {
