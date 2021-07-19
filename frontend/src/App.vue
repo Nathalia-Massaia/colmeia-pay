@@ -48,18 +48,15 @@ export default Vue.extend({
   overflow: hidden;
 }
 
-/* .routerView {
-  width: 100%;
-  z-index: 1;
-  position: fixed;
-} */
+.routerView {
+  height: 100%;
+}
 
 .headerWrapper {
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: map-get($layers, menu);
-
 }
 
 #app {
