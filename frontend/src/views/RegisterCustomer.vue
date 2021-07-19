@@ -27,18 +27,18 @@
 </template>
 
 <script lang='ts'>
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "RegisterCustomer",
+  name: 'RegisterCustomer',
   data() {
     return {};
-  },
+  }
 });
 </script>
 
 <style lang="scss">
-@import "@/sass/master";
+@import '@/sass/master';
 
 .registerCustomerWrapper {
   @include flexbox(column, center, center, 1rem);

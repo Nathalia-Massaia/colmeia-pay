@@ -1,6 +1,6 @@
 <template>
-  <div class="homeWrapper">
-    <template v-for="item in menuItems">
+  <div class="registerWrapper">
+     <template v-for="item in menuItems">
       <PageLink :title="item.title" :route="item.route" :key="item.title" />
     </template>
   </div>
@@ -11,41 +11,37 @@ import Vue from 'vue';
 import PageLink from '@/components/PageLink.vue';
 
 export default Vue.extend({
+  name: 'Register',
   components: {
-    PageLink,
+    PageLink
   },
   data() {
     return {
       menuItems: [
         {
           title: 'Produtos',
-          route: '/produtos',
+          route: '/produtos'
         },
         {
           title: 'Categorias',
-          route: '/categorias',
+          route: '/categorias'
         },
         {
           title: 'Clientes',
-          route: '/clientes',
-        },
-        {
-          title: 'Vendas',
-          route: '/vendas',
-        },
-      ],
+          route: '/clientes/criar'
+        }
+      ]
     };
-  },
+  }
 });
 </script>
 
 <style lang="scss">
 @import '@/sass/master';
 
-.homeWrapper {
+.registerWrapper {
   @include flexbox(column, center, center, 0);
   width: 100%;
   height: 100%;
 }
-
 </style>
