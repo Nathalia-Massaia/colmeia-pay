@@ -1,32 +1,32 @@
 <template>
   <v-bottom-navigation horizontal>
-    <v-btn icon>
-      <router-link to="/">
+    <router-link to="/">
+      <v-btn icon>
         <v-icon>mdi-home</v-icon>
         <span>Home</span>
-      </router-link>
-    </v-btn>
+      </v-btn>
+    </router-link>
 
-    <v-btn icon>
-      <router-link to="/">
+    <router-link to="/vendas">
+      <v-btn icon>
         <v-icon>mdi-currency-usd</v-icon>
         <span>Vender</span>
-      </router-link>
-    </v-btn>
+      </v-btn>
+    </router-link>
 
-    <v-btn icon>
-      <router-link to="/register">
+    <router-link to="/register">
+      <v-btn icon>
         <v-icon>mdi-plus</v-icon>
         <span>Cadastrar</span>
-      </router-link>
-    </v-btn>
+      </v-btn>
+    </router-link>
 
-    <v-btn icon>
-      <router-link to="/">
+    <router-link to="/insight">
+      <v-btn icon>
         <v-icon>mdi-chart-line</v-icon>
         <span>Relatórios</span>
-      </router-link>
-    </v-btn>
+      </v-btn>
+    </router-link>
   </v-bottom-navigation>
 </template>
 
@@ -55,6 +55,17 @@ export default Vue.extend({
 
   .v-btn {
     flex: 1 !important;
+    transition: map-get($transition, fast);
+  }
+
+  .router-link-exact-active {
+    .v-btn {
+      background-color: map-get($colors, secondary);
+
+      span {
+        color: map-get($colors, primary) !important;
+      }
+    }
   }
 }
 </style>

@@ -2,8 +2,12 @@ import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import Home from '@/views/Home.vue';
 import Register from '@/views/Register.vue';
-import CustomerEdit from '@/views/customer/CustomerEdit.vue';
-import Customer from '@/views/customer/Customer.vue';
+import Insight from '@/views/Insight.vue';
+
+import product from './product';
+import category from './category';
+import customer from './customer';
+import sale from './sale';
 
 Vue.use(VueRouter);
 
@@ -14,39 +18,18 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/register',
-    name: 'Register',
+    name: 'Cadastros',
     component: Register,
   },
   {
-    path: '/produtos',
-    name: 'Products',
-    component: Home,
+    path: '/insight',
+    name: 'Relatório de Vendas',
+    component: Insight,
   },
-  {
-    path: '/categorias',
-    name: 'Categorias',
-    component: Register,
-  },
-  {
-    path: '/clientes',
-    name: 'Customers',
-    component: Customer,
-  },
-    {
-      path: '/clientes/criar',
-      component: CustomerEdit,
-  
-    },
-    {
-      path: '/clientes/editar/:id',
-      component: CustomerEdit,
-    },
-  
-  {
-    path: '/vendas',
-    name: 'Sales',
-    component: Register,
-  },
+  ...product,
+  ...category,
+  ...customer,
+  ...sale,
 ];
 
 const router = new VueRouter({

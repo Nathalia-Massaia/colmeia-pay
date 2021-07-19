@@ -20,11 +20,11 @@ export default Vue.extend({
       menuItems: [
         {
           title: 'Produtos',
-          route: '/produtos'
+          route: '/produtos/criar'
         },
         {
           title: 'Categorias',
-          route: '/categorias'
+          route: '/categorias/criar'
         },
         {
           title: 'Clientes',

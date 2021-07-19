@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Customer</h1>
-    <router-view></router-view>
+    <DataTemplate />
   </div>
 </template>
 
