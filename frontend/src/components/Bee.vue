@@ -22,6 +22,7 @@ export default Vue.extend({
   position: absolute;
   z-index: map-get($layers, base);
   right: 0;
+  top: 0;
   transform: scaleX(-1);
 
   > img {

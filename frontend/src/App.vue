@@ -6,8 +6,6 @@
       <Loader />
     </div>
 
-    <Bee />
-
     <div class="headerWrapper">
       <Header />
     </div>
@@ -22,14 +20,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import { mapState } from 'vuex';
-import Bee from '@/components/Bee.vue';
 import Loader from '@/components/Loader.vue';
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    Bee,
     Loader,
   },
 
@@ -44,7 +40,7 @@ export default Vue.extend({
 <style lang="scss">
 @import '@/sass/master';
 
-v-app{
+v-app {
   display: none;
 }
 .fade-enter-active,
@@ -56,10 +52,6 @@ v-app{
   opacity: 0;
 }
 
-.routerView {
-  height: 100%;
-}
-
 .loaderWrapper {
   z-index: map-get($layers, base);
   height: 100vh;
@@ -68,10 +60,6 @@ v-app{
   position: fixed;
   right: 0;
   overflow: hidden;
-}
-
-.routerView {
-  height: 100%;
 }
 
 .headerWrapper {

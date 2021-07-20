@@ -1,5 +1,7 @@
 <template>
   <div class="homeWrapper">
+    <Bee />
+
     <template v-for="item in menuItems">
       <PageLink :title="item.title" :route="item.route" :key="item.title" />
     </template>
@@ -9,10 +11,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import PageLink from '@/components/PageLink.vue';
+import Bee from '@/components/Bee.vue';
 
 export default Vue.extend({
   components: {
     PageLink,
+    Bee,
   },
   data() {
     return {
@@ -47,5 +51,4 @@ export default Vue.extend({
   width: 100%;
   height: 100%;
 }
-
 </style>
