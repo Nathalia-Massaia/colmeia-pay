@@ -11,6 +11,7 @@
 
 <script lang="ts">
 import DataTemplate from '@/components/DataTemplate.vue';
+
 export default {
   components: {
     DataTemplate,

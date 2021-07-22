@@ -1,6 +1,8 @@
 <template>
   <div class="registerWrapper">
-     <template v-for="item in menuItems">
+    <Bee />
+
+    <template v-for="item in menuItems">
       <PageLink :title="item.title" :route="item.route" :key="item.title" />
     </template>
   </div>
@@ -9,30 +11,32 @@
 <script lang="ts">
 import Vue from 'vue';
 import PageLink from '@/components/PageLink.vue';
+import Bee from '@/components/Bee.vue';
 
 export default Vue.extend({
   name: 'Register',
   components: {
-    PageLink
+    PageLink,
+    Bee,
   },
   data() {
     return {
       menuItems: [
         {
           title: 'Produtos',
-          route: '/produtos/criar'
+          route: '/produtos/criar',
         },
         {
           title: 'Categorias',
-          route: '/categorias/criar'
+          route: '/categorias/criar',
         },
         {
           title: 'Clientes',
-          route: '/clientes/criar'
-        }
-      ]
+          route: '/clientes/criar',
+        },
+      ],
     };
-  }
+  },
 });
 </script>
 

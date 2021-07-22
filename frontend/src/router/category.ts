@@ -9,7 +9,7 @@ export default [
   },
   {
     path: '/categorias/criar',
-    name: 'Cadastrar Categorias',
+    name: 'Cadastrar Categoria',
     component: CategoryEdit,
   },
   {

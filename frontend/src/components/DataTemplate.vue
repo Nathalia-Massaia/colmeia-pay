@@ -113,8 +113,9 @@ export default Vue.extend({
 
     .v-data-footer {
       background: map-get($colors, white) !important;
+      width: 100%;
       position: fixed;
-      bottom: 3.5rem;
+      bottom: 3.3rem;
       margin: 0 !important;
       @include flexbox(row, center, space-around, 0);
 

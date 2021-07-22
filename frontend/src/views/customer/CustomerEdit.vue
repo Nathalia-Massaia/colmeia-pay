@@ -1,55 +1,93 @@
 <template>
-  <div class="registerCustomerWrapper">
-    <h2>{{ title }}</h2>
-    <v-card class="cardWrapper">
-      <v-form ref="form" v-model="valid" lazy-validation>
-        <v-text-field v-model="name" label="Nome" required></v-text-field>
-
-        <v-text-field
-          v-model="address"
-          label="Endereço"
-          required
-        ></v-text-field>
-        <v-text-field
-          v-model="phone"
-          label="Número de telefone"
-          required
-        ></v-text-field>
-
-        <v-btn color="success" class="mr-4" @click="confirme">
-          Confirmar
-        </v-btn>
-
-        <v-btn color="error" class="mr-4" @click="reset"> Cancelar </v-btn>
-      </v-form>
-    </v-card>
+  <div>
+    <FormTemplate
+      :id="id"
+      :title="title"
+      :breadcrumbs="breadcrumbItems"
+      :formItems="formItems"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import FormTemplate from '@/components/FormTemplate.vue';
+import addressMock from '@/mocks/address.mock';
 
-export default Vue.extend({
-  name: 'RegisterCustomer',
+export default {
+  components: {
+    FormTemplate,
+  },
   data() {
     return {
+      id: '',
       title: '',
+      breadcrumbItems: [
+        {
+          text: 'Home',
+          href: '/',
+          disabled: false,
+        },
+        {
+          text: 'Cadastros',
+          href: '/cadastros',
+          disabled: false,
+        },
+        {
+          text: 'Criar Cliente',
+          href: '/clientes/criar',
+          disabled: true,
+        },
+      ],
+      formItems: {
+        name: 'customer',
+        initialValues: {
+          name: '',
+          category: '',
+          price: '',
+        },
+        model: {
+          name: '',
+          phone: '',
+          address: '',
+        },
+        items: [
+          {
+            label: 'Nome',
+            model: 'name',
+            value: '',
+            type: 'input',
+            isRequired: true,
+            errorMessage: 'O Nome é Obrigatório',
+          },
+          {
+            label: 'Telefone',
+            model: 'phone',
+            value: '',
+            type: 'input',
+            isRequired: true,
+            mask: ['(##) ####-####', '(##) #####-####'],
+            errorMessage: 'O Telefone é Obrigatório',
+          },
+          {
+            label: 'Endereço',
+            model: 'address',
+            value: '',
+            type: 'select',
+            isRequired: true,
+            errorMessage: 'O Endereço é Obrigatório',
+            options: addressMock,
+          },
+        ],
+      },
     };
   },
   mounted() {
     this.title = this.$route.name!;
+    this.id = this.$route.params.id;
   },
-});
+};
 </script>
 
 <style lang="scss">
 @import '@/sass/master';
-
-.registerCustomerWrapper {
-  @include flexbox(column, center, center, 1rem);
-}
-
-.cardWrapper {
-  padding: map-get($spacings, xxsmall);
-}
 </style>

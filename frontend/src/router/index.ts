@@ -17,7 +17,7 @@ const routes: Array<RouteConfig> = [
     component: Home,
   },
   {
-    path: '/register',
+    path: '/cadastros',
     name: 'Cadastros',
     component: Register,
   },

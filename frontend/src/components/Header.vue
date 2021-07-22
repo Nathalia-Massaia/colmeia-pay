@@ -7,14 +7,14 @@
       </v-btn>
     </router-link>
 
-    <router-link to="/vendas">
+    <router-link to="/vendas/criar">
       <v-btn icon>
         <v-icon>mdi-currency-usd</v-icon>
         <span>Vender</span>
       </v-btn>
     </router-link>
 
-    <router-link to="/register">
+    <router-link to="/cadastros">
       <v-btn icon>
         <v-icon>mdi-plus</v-icon>
         <span>Cadastrar</span>
